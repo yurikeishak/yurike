@@ -207,358 +207,554 @@ body {
   }
 }
 
-/*
 /* ==================================================
-   EHEY AGENCY — CSS LENGKAP
-   ✅ Satu background utuh memanjang
-   ✅ Management: 3 kolom baris 1, 1 kolom tengah baris 2
-   ✅ Rapi di HP & Desktop
-   ✅ Semua bagian lain TETAP SAMA
+   KOLOM TEKS — MULUS TANPA BATAS / TANPA KOTAK
+   Background hero memanjang UTUH ke bawah
    ================================================== */
 
-/* ==================================================
-   WADAH UTAMA — SATU BACKGROUND HERO
-   ================================================== */
-.ehey-hero {
-  background: linear-gradient(135deg, 
-    #050a18 0%, 
-    #101a3f 25%, 
-    #701a45 50%, 
-    #101a3f 75%, 
-    #050a18 100%);
-  position: relative;
-  overflow: hidden;
+.ehey-kolom-baru {
   width: 100%;
-  min-height: 420px;
-  height: auto;
-  
+  max-width: 700px;
+  margin: 1.8rem auto 0 auto; /* Jarak antar bagian saja */
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+
+  /* ❌ TIDAK ADA latar, TIDAK ADA bingkai, TIDAK ADA bayangan */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Judul Kolom */
+.ehey-kolom-judul {
+  font-size: 19px;
+  font-weight: 700;
+  color: #00ff88;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  letter-spacing: 0.5px;
+}
+
+/* Isi Teks */
+.ehey-kolom-isi {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #f0f0f0;
+  margin: 0;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+/* === RESPONSIF === */
+@media (max-width: 768px) {
+  .ehey-kolom-baru {
+    max-width: 100%;
+    margin: 1.4rem auto 0 auto;
+    padding: 0 15px;
+  }
+  .ehey-kolom-judul { font-size: 17px; }
+  .ehey-kolom-isi { font-size: 14px; line-height: 1.7; }
+}
+
+@media (min-width: 1200px) {
+  .ehey-kolom-baru { max-width: 780px; margin-top: 2rem; }
+  .ehey-kolom-judul { font-size: 21px; }
+  .ehey-kolom-isi { font-size: 16px; }
+}
+
+ ==============================================
+   RESPONSIVE — HP & DEKSTOP
+   ============================================== */
+@media (max-width: 768px) {
+  .ehey-hero {
+    min-height: 360px;
+    padding: 15px 10px 25px 10px;
+  }
+  .ehey-marquee-text {
+    font-size: 14px;
+  }
+  .ehey-logo-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+  .ehey-deskripsi-teks {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ehey-hero {
+    min-height: 460px;
+  }
+  .ehey-marquee-text {
+    font-size: 20px;
+  }
+  .ehey-logo-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+  .ehey-deskripsi-teks {
+    font-size: 16px;
+  }
+}
+
+/* ==================================================
+   CSS KHUSUS BAGIAN INI SAJA — TETAP DI BACKGROUND HERO
+   ================================================== */
+
+.ehey-member-stats {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  
-  padding: 25px 15px 50px 15px;
-  box-sizing: border-box;
-}
-
-/* Efek Garis Cahaya */
-.ehey-hero::before,
-.ehey-hero::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent, #ff2e88, #00ccff, transparent);
-  opacity: 0.6;
-  z-index: 5;
-}
-.ehey-hero::before { top: 8%; }
-.ehey-hero::after { bottom: 5%; }
-
-/* ==================================================
-   TEKS BERJALAN — TIDAK DIUBAH
-   ================================================== */
-.ehey-marquee-container {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 10px 0;
-  margin-bottom: 15px;
-  z-index: 10;
-}
-.ehey-marquee-text {
-  display: inline-block;
-  padding-left: 100%;
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  text-shadow: 
-    0 0 8px #ff4db8,
-    0 0 15px #ff2e88,
-    0 0 25px #00ccff;
-  animation: ehey-marquee 22s linear infinite;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-}
-@keyframes ehey-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-200%); }
-}
-
-/* ==================================================
-   LOGO BERKEDIP — TIDAK DIUBAH
-   ================================================== */
-.ehey-logo-wrapper {
-  width: 170px;
-  height: 170px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 0 0 18px 0;
-  transform: translateX(0);
-  z-index: 10;
-}
-.ehey-logo-bulat {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #ff4db8;
-  box-shadow:
-    0 0 10px #ff2e88,
-    0 0 20px #00ccff,
-    0 0 30px #ff2e88;
-  animation: ehey-kedip 1.2s ease-in-out infinite alternate;
-}
-@keyframes ehey-kedip {
-  0% {
-    opacity: 0.75;
-    box-shadow:
-      0 0 10px #ff2e88,
-      0 0 20px #00ccff,
-      0 0 30px #ff2e88;
-  }
-  100% {
-    opacity: 1;
-    box-shadow:
-      0 0 18px #ff4db8,
-      0 0 35px #00ccff,
-      0 0 50px #ff2e88,
-      0 0 70px #00ccff;
-  }
-}
-
-/* ==================================================
-   TEKS PENJELASAN — TIDAK DIUBAH
-   ================================================== */
-.ehey-deskripsi-teks {
-  max-width: 780px;
-  width: 100%;
-  margin: 0 0 40px 0;
-  padding: 0 15px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(0,204,255,0.5);
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin-top: 2rem; /* Jarak 2 spasi ke bawah */
+  padding: 0;
   box-sizing: border-box;
-  z-index: 10;
+  position: relative;
+  z-index: 10; /* Tetap di atas background hero */
 }
 
-/* ==================================================
-   STATISTIK MEMBER — TIDAK DIUBAH
-   ================================================== */
-.ehey-member-stats {
-  width: 100%;
-  max-width: 300px;
-  text-align: center;
-  margin: 0 0 45px 0;
-  z-index: 10;
-}
 .ehey-angka-wrapper {
+  text-align: center;
   margin-bottom: 8px;
 }
+
 .ehey-angka-member {
   font-size: 42px;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 0 10px #00ccff, 0 0 20px #ff2e88;
+  text-shadow:
+    0 0 10px #00ff88,
+    0 0 20px #00ccff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  line-height: 1;
+  transition: all 0.3s ease;
 }
+
 .ehey-label-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
 }
+
+/* Titik hijau kecil berkedip */
 .ehey-tanda-aktif {
-  width: 10px;
-  height: 10px;
-  background: #00ff88;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  box-shadow: 0 0 8px #00ff88;
+  background-color: #00ff66;
+  box-shadow: 0 0 6px #00ff66, 0 0 12px #00ff66;
+  animation: ehey-kedip-hijau 1.5s ease-in-out infinite alternate;
 }
+
+@keyframes ehey-kedip-hijau {
+  0% { opacity: 0.4; box-shadow: 0 0 4px #00ff66; }
+  100% { opacity: 1; box-shadow: 0 0 8px #00ff66, 0 0 16px #00ff66; }
+}
+
+/* Teks link ke members.html */
 .ehey-teks-label-link {
+  font-size: 15px;
   color: #e0e0e0;
-  font-size: 15px;
+  text-shadow: 0 0 4px rgba(0,255,102,0.4);
+  font-family: 'Segoe UI', Roboto, sans-serif;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
+
 .ehey-teks-label-link:hover {
-  color: #00ccff;
-}
-
-/* ==================================================
-   BAGIAN MANAGEMENT — 3 + 1 TENGAH ✅ DIPERBAIKI
-   ================================================== */
-.ehey-management-section {
-  width: 100%;
-  max-width: 950px;
-  margin: 0 0 55px 0;
-  padding: 0 15px;
-  box-sizing: border-box;
-  z-index: 10;
-}
-.ehey-management-judul {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 800;
-  color: #ffffff;
-  margin: 0 0 30px 0;
-  text-shadow: 0 0 8px #ff2e88;
-}
-.ehey-management-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Baris 1: 3 kolom */
-  gap: 35px 25px; /* jarak: atas-bawah kiri-kanan */
-  width: 100%;
-}
-/* Kolom ke-4 pindah ke TENGAH baris ke-2 */
-.ehey-management-kolom:nth-child(4) {
-  grid-column: 2 / 3;
-}
-.ehey-management-kolom {
-  text-align: center;
-  z-index: 10;
-}
-.ehey-management-foto {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%; /* ✅ BULAT SEMPURNA */
-  border: 3px solid #ff2e88;
-  box-shadow: 0 0 12px #ff2e88, 0 0 20px #00ccff;
-  display: block;
-  margin: 0 auto 12px auto;
-}
-.ehey-management-username {
-  color: #00ccff;
-  font-weight: 700;
-  margin: 0 0 6px 0;
-  font-size: 15px;
-}
-.ehey-management-jabatan {
-  color: #cccccc;
-  font-size: 13px;
-  margin: 0 0 12px 0;
-}
-.ehey-follow-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  background: linear-gradient(90deg, #ff2e88, #00ccff);
-  color: #ffffff;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  transition: transform 0.2s;
-}
-.ehey-follow-btn:hover {
-  transform: scale(1.05);
-}
-
-/* ==================================================
-   TENTANG AGENCY — TIDAK DIUBAH
-   ================================================== */
-.ehey-about-section {
-  width: 100%;
-  max-width: 780px;
-  margin: 0 0 55px 0;
-  padding: 0 15px;
-  box-sizing: border-box;
-  z-index: 10;
-}
-.ehey-about-judul {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 800;
   color: #00ff88;
-  margin: 0 0 20px 0;
   text-shadow: 0 0 8px #00ff88;
 }
-.ehey-about-isi {
-  color: #f0f0f0;
-  line-height: 1.8;
-  font-size: 15px;
-  text-align: center;
-}
-.ehey-about-isi p {
-  margin: 0 0 15px 0;
+
+/* Responsif */
+@media (max-width: 768px) {
+  .ehey-member-stats { margin-top: 1.5rem; }
+  .ehey-angka-member { font-size: 32px; }
+  .ehey-teks-label-link { font-size: 14px; }
+  .ehey-tanda-aktif { width: 7px; height: 7px; }
 }
 
+@media (min-width: 1200px) {
+  .ehey-angka-member { font-size: 52px; }
+  .ehey-teks-label-link { font-size: 16px; }
+}
+
+/*
+
 /* ==================================================
-   MANFAAT BERGABUNG — TIDAK DIUBAH
+   CSS BAGIAN MANAGEMENT — TETAP DI BACKGROUND HERO
+   TIDAK MENGUBAH BAGIAN LAIN
    ================================================== */
-.ehey-manfaat-section {
+
+.ehey-management-section {
   width: 100%;
-  max-width: 1000px;
-  margin: 0;
+  max-width: 900px;
+  margin: 2.5rem auto 0 auto;
   padding: 0 15px;
   box-sizing: border-box;
+  position: relative;
   z-index: 10;
+  scroll-margin-top: 20px; /* Jarak saat diklik dari menu */
 }
-.ehey-manfaat-judul {
-  text-align: center;
+
+/* Judul Utama */
+.ehey-management-judul {
   font-size: 22px;
   font-weight: 800;
   color: #ffffff;
-  margin: 0 0 35px 0;
-  text-shadow: 0 0 8px #00ccff;
+  text-align: center;
+  text-shadow:
+    0 0 8px #ff4db8,
+    0 0 15px #00ccff;
+  margin: 0 0 20px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 1px;
 }
-.ehey-manfaat-grid {
+
+/* Wadah 4 Kolom */
+.ehey-management-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
   width: 100%;
 }
-.ehey-manfaat-kolom {
-  text-align: center;
-  z-index: 10;
+
+/* Setiap Kolom Profil */
+.ehey-management-kolom {
+  background: rgba(0, 20, 40, 0.45);
+  border-radius: 12px;
+  padding: 20px 15px;
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
-.ehey-emoji {
-  font-size: 32px;
-  display: inline-block;
-  margin-bottom: 10px;
+
+.ehey-management-kolom:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 255, 136, 0.4);
 }
-.ehey-kolom-judul {
-  font-size: 17px;
+
+/* Foto Profil Bulat */
+.ehey-management-foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ccff;
+  box-shadow:
+    0 0 8px #00ccff,
+    0 0 15px rgba(0, 204, 255, 0.3);
+  margin-bottom: 12px;
+}
+
+/* @Username */
+.ehey-management-username {
+  font-size: 14px;
   font-weight: 700;
   color: #00ff88;
-  margin: 0 0 10px 0;
-  text-shadow: 0 0 6px rgba(0,255,102,0.3);
+  margin: 0 0 6px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  text-shadow: 0 0 4px rgba(0, 255, 102, 0.3);
 }
-.ehey-kolom-isi {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #e0e0e0;
-  margin: 0;
+
+/* Jabatan */
+.ehey-management-jabatan {
+  font-size: 12.5px;
+  color: #cccccc;
+  margin: 0 0 14px 0;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-style: italic;
+}
+
+/* Tombol Follow */
+.ehey-follow-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #00ccff, #00ff88);
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+}
+
+.ehey-follow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ccff, 0 0 25px #00ff88;
+}
+
+/* ==============================================
+   RESPONSIVE — HP & DEKSTOP
+   ============================================== */
+@media (max-width: 768px) {
+  .ehey-management-section {
+    margin-top: 2rem;
+  }
+  .ehey-management-judul {
+    font-size: 18px;
+  }
+  .ehey-management-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+    gap: 12px;
+  }
+  .ehey-management-foto {
+    width: 90px;
+    height: 90px;
+  }
+  .ehey-management-username {
+    font-size: 13px;
+  }
+  .ehey-management-jabatan {
+    font-size: 11.5px;
+  }
+  .ehey-follow-btn {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ehey-management-grid {
+    grid-template-columns: 1fr; /* 1 kolom di HP kecil */
+  }
+  .ehey-management-kolom {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ehey-management-section {
+    max-width: 1000px;
+  }
+  .ehey-management-foto {
+    width: 125px;
+    height: 125px;
+  }
+  .ehey-management-username {
+    font-size: 15px;
+  }
+  .ehey-management-jabatan {
+    font-size: 13px;
+  }
+}
+ ==================================================
+   CSS KOLOM TENTANG — TETAP DI BACKGROUND HERO
+   TIDAK MENGUBAH BAGIAN LAIN
+   ================================================== */
+
+.ehey-about-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 2.5rem auto 0 auto; /* Jarak dari bagian atas */
+  padding: 25px 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10; /* Tetap di atas background hero */
+  text-align: center;
+}
+
+/* Judul */
+.ehey-about-judul {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #ff4db8,
+    0 0 20px #00ccff;
+  margin: 0 0 20px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Isi Kolom */
+.ehey-about-isi {
+  background: rgba(0, 20, 40, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(0, 204, 255, 0.25);
+  box-shadow:
+    0 0 15px rgba(0, 204, 255, 0.1),
+    inset 0 0 20px rgba(255, 46, 136, 0.05);
+}
+
+.ehey-about-isi p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #f0f0f0;
+  margin: 0 0 15px 0;
+  text-align: justify;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.ehey-about-isi p:last-child {
+  margin-bottom: 0;
+}
+
+.ehey-about-isi strong {
+  color: #00ff88;
+  text-shadow: 0 0 4px rgba(0, 255, 102, 0.3);
+}
+
+/* ==============================================
+   RESPONSIVE — HP & DEKSTOP
+   ============================================== */
+@media (max-width: 768px) {
+  .ehey-about-section {
+    margin-top: 2rem;
+    padding: 20px 15px;
+  }
+  .ehey-about-judul {
+    font-size: 20px;
+  }
+  .ehey-about-isi {
+    padding: 18px;
+  }
+  .ehey-about-isi p {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ehey-about-section {
+    max-width: 900px;
+  }
+  .ehey-about-judul {
+    font-size: 30px;
+  }
+  .ehey-about-isi p {
+    font-size: 16px;
+  }
 }
 
 /* ==================================================
-   RESPONSIF — RAPI DI HP & TIDAK BERANTAKAN ✅
+   CSS MANFAAT — TIDAK DIUBAH, TETAP SAMA
    ================================================== */
+
+.ehey-manfaat-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+  scroll-margin-top: 20px; /* Jarak saat meluncur dari menu */
+}
+
+.ehey-manfaat-judul {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  text-shadow:
+    0 0 8px #ff4db8,
+    0 0 15px #00ccff;
+  margin: 0 0 18px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.ehey-manfaat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.ehey-manfaat-kolom {
+  background: rgba(0, 20, 40, 0.45);
+  border-radius: 10px;
+  padding: 15px 14px;
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.08);
+  box-sizing: border-box;
+  transition: transform 0.25s ease;
+}
+
+.ehey-manfaat-kolom:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 255, 136, 0.4);
+}
+
+.ehey-emoji {
+  display: block;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.ehey-kolom-judul {
+  font-size: 15px;
+  font-weight: 700;
+  color: #00ff88;
+  text-align: center;
+  margin: 0 0 8px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  text-shadow: 0 0 4px rgba(0, 255, 102, 0.3);
+}
+
+.ehey-kolom-isi {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #e8e8e8;
+  margin: 0;
+  text-align: justify;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
 @media (max-width: 768px) {
-  .ehey-hero {
-    padding: 20px 12px 40px 12px;
+  .ehey-manfaat-section {
+    margin-top: 1.5rem;
   }
-  .ehey-marquee-text { font-size: 14px; }
-  .ehey-logo-wrapper { width: 140px; height: 140px; }
-  .ehey-deskripsi-teks { font-size: 14px; margin-bottom: 30px; }
-  .ehey-angka-member { font-size: 36px; }
-  
-  /* Management di HP → jadi 2 kolom, lalu 1 di bawah tengah */
-  .ehey-management-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px 20px;
+  .ehey-manfaat-judul {
+    font-size: 18px;
   }
-  .ehey-management-kolom:nth-child(4) {
-    grid-column: 1 / -1; /* ambil lebar penuh */
+  .ehey-manfaat-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
-  .ehey-management-foto { width: 100px; height: 100px; }
-  .ehey-management-judul { font-size: 20px; }
-  
-  .ehey-about-judul, .ehey-manfaat-judul { font-size: 19px; }
-  .ehey-manfaat-grid { grid-template-columns: 1fr; gap: 25px; }
+  .ehey-manfaat-kolom {
+    padding: 13px 12px;
+  }
+  .ehey-emoji {
+    font-size: 22px;
+  }
+  .ehey-kolom-judul {
+    font-size: 14px;
+  }
+  .ehey-kolom-isi {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ehey-manfaat-section {
+    max-width: 1000px;
+  }
+  .ehey-manfaat-judul {
+    font-size: 24px;
+  }
+  .ehey-kolom-isi {
+    font-size: 13px;
+  }
 }
